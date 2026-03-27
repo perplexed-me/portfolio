@@ -1,0 +1,140 @@
+/* ===== HOMEPAGE ===== */
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  padding: 40px 24px 80px;
+}
+
+.heroContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroText {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.heroName {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.prompt {
+  opacity: 0.5;
+  margin-right: 4px;
+}
+
+.heroTitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.heroBio {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.heroBioLine {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.heroBioLine a,
+.heroBioLine strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.heroCTA {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.ctaPrimary {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 15px rgba(124, 124, 201, 0.3);
+  text-align: center;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(124, 124, 201, 0.4);
+  background: var(--accent-secondary);
+}
+
+.ctaSecondary {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.ctaSecondary:hover {
+  transform: translateY(-3px);
+  background: rgba(124, 124, 201, 0.08);
+  box-shadow: 0 4px 15px rgba(124, 124, 201, 0.2);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 16px 48px;
+    min-height: auto;
+  }
+
+  .heroName {
+    font-size: 2rem;
+  }
+
+  .heroCTA {
+    flex-direction: column;
+  }
+}

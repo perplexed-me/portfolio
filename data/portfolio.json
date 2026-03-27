@@ -1,0 +1,221 @@
+{
+  "profile": {
+    "name": "Mohammad",
+    "title": "Full Stack Developer",
+    "tagline": "I build modern, performant web experiences.",
+    "bio": "...",
+    "location": "Dhaka, Bangladesh",
+    "email": "mohammad.23.mail@gmail.com",
+    "resumeUrl": "/uploads/resume.pdf",
+    "socialLinks": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/perplexed-me",
+        "icon": "github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mohammad-ali-bhuiyan/",
+        "icon": "linkedin"
+      },
+      {
+        "platform": "Facebook",
+        "url": "https://www.facebook.com/mohammad.ali.bhuiyan.237/",
+        "icon": "facebook"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "id": "1",
+      "name": "JavaScript",
+      "category": "language",
+      "level": 95
+    },
+    {
+      "id": "2",
+      "name": "React",
+      "category": "framework",
+      "level": 92
+    },
+    {
+      "id": "3",
+      "name": "Next.js",
+      "category": "framework",
+      "level": 90
+    },
+    {
+      "id": "4",
+      "name": "Node.js",
+      "category": "runtime",
+      "level": 88
+    },
+    {
+      "id": "5",
+      "name": "TypeScript",
+      "category": "language",
+      "level": 85
+    },
+    {
+      "id": "6",
+      "name": "Python",
+      "category": "language",
+      "level": 82
+    },
+    {
+      "id": "7",
+      "name": "PostgreSQL",
+      "category": "database",
+      "level": 80
+    },
+    {
+      "id": "8",
+      "name": "MongoDB",
+      "category": "database",
+      "level": 78
+    },
+    {
+      "id": "9",
+      "name": "Docker",
+      "category": "devops",
+      "level": 75
+    },
+    {
+      "id": "10",
+      "name": "CSS/SCSS",
+      "category": "frontend",
+      "level": 90
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "E-Commerce Platform",
+      "description": "A full-featured e-commerce platform with payment processing, inventory management, and real-time analytics dashboard.",
+      "tech": [
+        "Next.js",
+        "Node.js",
+        "PostgreSQL",
+        "Stripe"
+      ],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/perplexed-me/ecommerce",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "2",
+      "title": "Task Management App",
+      "description": "Collaborative task management application with real-time sync, team workspaces, and AI-powered task prioritization.",
+      "tech": [
+        "React",
+        "Firebase",
+        "Material UI"
+      ],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/perplexed-me/taskapp",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "3",
+      "title": "AI Chat Interface",
+      "description": "Modern chat interface with multiple AI models, conversation history, and markdown rendering support.",
+      "tech": [
+        "Next.js",
+        "OpenAI",
+        "WebSocket"
+      ],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/perplexed-me/aichat",
+      "image": "",
+      "featured": true
+    },
+    {
+      "id": "4",
+      "title": "Weather Dashboard",
+      "description": "Beautiful weather dashboard with 7-day forecasts, interactive maps, and location-based alerts.",
+      "tech": [
+        "React",
+        "D3.js",
+        "WeatherAPI"
+      ],
+      "liveUrl": "https://example.com",
+      "githubUrl": "https://github.com/perplexed-me/weather",
+      "image": "",
+      "featured": false
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "company": "Bangladesh University of Engineering and Technology (BUET)",
+      "role": "B.Sc. in Computer Science and Engineering",
+      "period": "Undergraduate",
+      "description": "Department of CSE. \nWebsite: https://www.buet.ac.bd/\nDepartment: https://cse.buet.ac.bd/",
+      "tech": [
+        "Computer Science"
+      ]
+    },
+    {
+      "id": "edu-2",
+      "company": "Notre Dame College, Dhaka (NDC)",
+      "role": "Higher Secondary Certificate (HSC)",
+      "period": "College",
+      "description": "Website: https://ndc.edu.bd/",
+      "tech": [
+        "Science"
+      ]
+    },
+    {
+      "id": "edu-3",
+      "company": "Ispahani Public School and College, Cumilla (IPSC)",
+      "role": "Secondary School Certificate (SSC)",
+      "period": "School",
+      "description": "Website: https://www.ipsc.edu.bd/",
+      "tech": [
+        "Science"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "1",
+      "company": "Tech Corp",
+      "role": "Senior Full Stack Developer",
+      "period": "2023 - Present",
+      "description": "Leading development of microservices architecture and frontend applications. Improved page load times by 40%.",
+      "tech": [
+        "React",
+        "Node.js",
+        "AWS",
+        "Docker"
+      ]
+    },
+    {
+      "id": "2",
+      "company": "StartupXYZ",
+      "role": "Full Stack Developer",
+      "period": "2021 - 2023",
+      "description": "Built and maintained multiple client-facing web applications. Implemented CI/CD pipelines and monitoring.",
+      "tech": [
+        "Next.js",
+        "Python",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "id": "3",
+      "company": "Freelance",
+      "role": "Web Developer",
+      "period": "2019 - 2021",
+      "description": "Delivered 20+ web projects for clients worldwide. Specialized in responsive design and performance optimization.",
+      "tech": [
+        "React",
+        "WordPress",
+        "Figma"
+      ]
+    }
+  ],
+  "messages": []
+}

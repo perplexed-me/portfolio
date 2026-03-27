@@ -1,0 +1,155 @@
+.section {
+  padding: 60px 0 100px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prompt {
+  opacity: 0.5;
+}
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.heading {
+  font-family: var(--font-sans);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Terminal */
+.contactTerminal {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-terminal);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.terminalHeader {
+  background: var(--bg-terminal-header);
+  padding: 14px 18px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.headerLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  margin-left: 8px;
+}
+
+.terminalBody {
+  background: var(--bg-terminal);
+  padding: 28px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 2.2;
+  min-height: 200px;
+}
+
+.contactLine {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.linePrompt {
+  color: var(--text-terminal-muted);
+  user-select: none;
+}
+
+.lineValue {
+  margin-left: 24px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  word-break: break-all;
+}
+
+.lineValue:hover {
+  text-decoration: underline;
+  filter: brightness(1.2);
+}
+
+.cursorLine {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.cursor {
+  color: var(--accent-green);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.green { color: var(--accent-green); }
+.cyan { color: var(--accent-cyan); }
+
+@media (max-width: 768px) {
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .terminalBody {
+    font-size: 0.8rem;
+    padding: 20px 16px;
+  }
+}
