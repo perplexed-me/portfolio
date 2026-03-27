@@ -16,6 +16,7 @@ const COMMANDS = {
         { cmd: 'skills', desc: 'View my skills' },
         { cmd: 'projects', desc: 'View my projects' },
         { cmd: 'experience', desc: 'View my experience' },
+        { cmd: 'education', desc: 'View my education' },
         { cmd: 'theme [dark|light]', desc: 'Switch theme' },
         { cmd: 'clear', desc: 'Clear terminal' },
       ]
@@ -95,9 +96,18 @@ const COMMANDS = {
       color: 'cyan'
     })
   },
+  education: {
+    description: 'Navigate to education',
+    output: () => ({
+      type: 'navigate',
+      path: '/education',
+      message: 'Navigating to education...',
+      color: 'cyan'
+    })
+  },
 };
 
-export default function InteractiveTerminal({ profile }) {
+export default function InteractiveTerminal({ profile, autoCommand = 'about', customCommands = null, customIntroLines = null }) {
   const router = useRouter();
   const [history, setHistory] = useState([]);
   const [input, setInput] = useState('');
@@ -120,15 +130,14 @@ export default function InteractiveTerminal({ profile }) {
     if (typingDone.current) return;
     typingDone.current = true;
 
-    const introLines = [
+    const introLines = customIntroLines || [
       { type: 'system', text: `Welcome to ${profile.name || 'Developer'}'s terminal`, color: 'cyan' },
       { type: 'system', text: 'Type "help" for available commands', color: 'yellow' },
       { type: 'system', text: '' },
     ];
 
     const autoCommands = [
-      { cmd: 'about', delay: 600 },
-      // { cmd: 'contact', delay: 1800 },
+      { cmd: autoCommand, delay: 600 },
     ];
 
     let timeout;
@@ -155,7 +164,10 @@ export default function InteractiveTerminal({ profile }) {
     }, totalDelay);
     timeouts.push(enableInput);
 
-    return () => timeouts.forEach(clearTimeout);
+    return () => {
+      timeouts.forEach(clearTimeout);
+      typingDone.current = false;
+    };
   }, [profile]);
 
   useEffect(() => {
@@ -199,7 +211,8 @@ export default function InteractiveTerminal({ profile }) {
       return;
     }
 
-    const command = COMMANDS[cmd];
+    const activeCommands = customCommands || COMMANDS;
+    const command = activeCommands[cmd];
     if (!command) {
       setHistory(prev => [...prev, promptEntry, {
         type: 'system',

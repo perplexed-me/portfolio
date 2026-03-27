@@ -160,6 +160,7 @@ export default function AdminClient({ initialAuth = false, initialData = null })
     { id: 'projects', label: 'Projects', icon: '📁' },
     { id: 'skills', label: 'Skills', icon: '⚡' },
     { id: 'experience', label: 'Experience', icon: '💼' },
+    { id: 'education', label: 'Education', icon: '🎓' },
     // { id: 'messages', label: 'Messages', icon: '💬', badge: data?.messages?.filter(m => !m.read).length },
   ];
 
@@ -220,6 +221,9 @@ export default function AdminClient({ initialAuth = false, initialData = null })
           )}
           {activeTab === 'experience' && (
             <ExperienceEditor data={data.experience} onSave={(val) => saveSection('experience', val)} saving={saving} />
+          )}
+          {activeTab === 'education' && (
+            <EducationEditor data={data.education} onSave={(val) => saveSection('education', val)} saving={saving} />
           )}
           {activeTab === 'messages' && (
             <MessagesViewer messages={data.messages || []} onDelete={deleteMessage} />
@@ -718,6 +722,124 @@ function ExperienceEditor({ data, onSave, saving }) {
       <div className={styles.saveArea}>
         <button onClick={() => onSave(experience)} className={styles.saveBtn} disabled={saving}>
           {saving ? 'Saving...' : 'Save Experience'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ===== EDUCATION EDITOR ===== */
+function EducationEditor({ data, onSave, saving }) {
+  const [education, setEducation] = useState(data || []);
+
+  const updateEdu = (index, field, value) => {
+    const updated = [...education];
+    updated[index] = { ...updated[index], [field]: value };
+    setEducation(updated);
+  };
+
+  const addEdu = () => {
+    setEducation(prev => [{
+      id: Date.now().toString(),
+      company: '',
+      role: '',
+      period: '',
+      description: '',
+      tech: []
+    }, ...prev]);
+  };
+
+  const removeEdu = (index) => {
+    setEducation(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const [draggedIdx, setDraggedIdx] = useState(null);
+
+  const handleDragStart = (e, index) => {
+    setDraggedIdx(index);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDrop = (e, dropIndex) => {
+    e.preventDefault();
+    if (draggedIdx === null || draggedIdx === dropIndex) return;
+    const updated = [...education];
+    const [removed] = updated.splice(draggedIdx, 1);
+    updated.splice(dropIndex, 0, removed);
+    setEducation(updated);
+    setDraggedIdx(null);
+  };
+
+  const handleOrderChange = (e, index) => {
+    let val = parseInt(e.target.value);
+    const updated = [...education];
+    if (isNaN(val) || val < 1) val = 1;
+    if (val > updated.length) val = updated.length;
+    if (val - 1 === index) return;
+    const [removed] = updated.splice(index, 1);
+    updated.splice(val - 1, 0, removed);
+    setEducation(updated);
+  };
+
+  return (
+    <div className={styles.editor}>
+      <div className={styles.editorActions}>
+        <button onClick={addEdu} className={styles.addBtn}>+ Add Education</button>
+      </div>
+      {education.map((edu, i) => (
+        <div 
+          key={edu.id} 
+          className={styles.editorCard}
+          draggable
+          onDragStart={(e) => handleDragStart(e, i)}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => handleDrop(e, i)}
+          style={{ opacity: draggedIdx === i ? 0.5 : 1 }}
+        >
+          <div className={styles.editorCardHeader}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div className={styles.dragHandle} style={{ cursor: 'grab' }}>⋮⋮</div>
+              <h3>{edu.role || 'New Degree / Certificate'}</h3>
+            </div>
+            <div className={styles.actionGroup}>
+              <div className={styles.orderControl}>
+                <input type="number" value={i + 1} min="1" max={education.length} onChange={(e) => handleOrderChange(e, i)} className={styles.orderInput} />
+                <span className={styles.orderTotal}>/ {education.length}</span>
+              </div>
+              <button title="Delete" onClick={() => removeEdu(i)} className={styles.deleteBtn}>Delete</button>
+            </div>
+          </div>
+          <div className={styles.formGrid}>
+            <div className={styles.formGroup}>
+              <label>Degree / Certificate</label>
+              <input value={edu.role} onChange={e => updateEdu(i, 'role', e.target.value)} placeholder="e.g. B.Sc in Computer Science" />
+            </div>
+            <div className={styles.formGroup}>
+              <label>Institution</label>
+              <input value={edu.company} onChange={e => updateEdu(i, 'company', e.target.value)} placeholder="University or College" />
+            </div>
+            <div className={styles.formGroup}>
+              <label>Period</label>
+              <input value={edu.period} onChange={e => updateEdu(i, 'period', e.target.value)} placeholder="e.g. 2018 - 2022" />
+            </div>
+            <div className={styles.formGroup}>
+              <label>Relevant Subjects / Major (comma-separated)</label>
+              <input
+                value={(edu.tech || []).join(', ')}
+                onChange={e => updateEdu(i, 'tech', e.target.value.split(',').map(t => t.trim()).filter(Boolean))}
+                placeholder="Software Engineering, Algorithms"
+              />
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <label>Description / Website</label>
+            <textarea value={edu.description} onChange={e => updateEdu(i, 'description', e.target.value)} rows={3} placeholder="Additional info..." />
+          </div>
+        </div>
+      ))}
+      <div className={styles.saveArea}>
+        <button onClick={() => onSave(education)} className={styles.saveBtn} disabled={saving}>
+          {saving ? 'Saving...' : 'Save Education'}
         </button>
       </div>
     </div>

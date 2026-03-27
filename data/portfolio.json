@@ -171,11 +171,51 @@
       "id": "edu-3",
       "company": "Ispahani Public School and College, Cumilla (IPSC)",
       "role": "Secondary School Certificate (SSC)",
-      "period": "School",
+      "period": "School (Class: 8 to 10)",
       "description": "Website: https://www.ipsc.edu.bd/",
       "tech": [
         "Science"
       ]
+    },
+    {
+      "id": "1774645257557",
+      "company": "Gouripur SA High School, Daudkandi, Cumilla",
+      "role": "High School",
+      "period": "School: (Class: 6 to 7)",
+      "description": "Website: https://www.gouripursahs.edu.bd/",
+      "tech": []
+    },
+    {
+      "id": "1774645538513",
+      "company": "Dr. Arju International School, Gouripur, Daudkandi, Cumilla.",
+      "role": "Primary School",
+      "period": "School: (Class: 4 to 5)",
+      "description": "",
+      "tech": []
+    },
+    {
+      "id": "1774645902098",
+      "company": "Zearkandi Govt. Primary School, Titas, Cumilla",
+      "role": "Primary School",
+      "period": "School: (Class: 3)",
+      "description": "",
+      "tech": []
+    },
+    {
+      "id": "1774646032436",
+      "company": "Gouripur West Govt. Primary School, Daudkandi, Cumilla",
+      "role": "Primary School",
+      "period": "School: (Class: 2)",
+      "description": "",
+      "tech": []
+    },
+    {
+      "id": "1774646236063",
+      "company": "Unity School and College, Gouripur, Daudkandi, Cumilla",
+      "role": "Primary School",
+      "period": "School: (Class: Play to One)",
+      "description": "",
+      "tech": []
     }
   ],
   "experience": [

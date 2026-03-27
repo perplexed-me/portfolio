@@ -1,5 +1,5 @@
 import { getSection } from '@/lib/data';
-import ContactClient from './ContactClient';
+import ContactTerminal from './ContactTerminal';
 
 export const metadata = {
   title: 'Contact — Mohammad Ali Bhuiyan',
@@ -9,9 +9,8 @@ export const metadata = {
 export default function ContactPage() {
   const profile = getSection('profile');
   return (
-    <ContactClient
-      email={profile?.email || ''}
-      socialLinks={profile?.socialLinks || []}
-    />
+    <div style={{ padding: '100px 24px', maxWidth: '900px', margin: '0 auto', minHeight: 'calc(100vh - 200px)' }}>
+      <ContactTerminal profile={profile || {}} />
+    </div>
   );
 }
