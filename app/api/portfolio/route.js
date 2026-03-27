@@ -15,7 +15,7 @@ export async function PUT(request) {
     if (!section) {
       return NextResponse.json({ error: 'Section is required' }, { status: 400 });
     }
-    const updated = updateSection(section, value);
+    const updated = await updateSection(section, value);
     return NextResponse.json({ success: true, data: updated });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update' }, { status: 500 });

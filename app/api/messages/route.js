@@ -21,7 +21,7 @@ export async function POST(request) {
     };
     
     data.messages = [newMessage, ...(data.messages || [])];
-    saveData(data);
+    await saveData(data);
     
     return NextResponse.json({ success: true, message: 'Message sent successfully!' });
   } catch (error) {
@@ -36,7 +36,7 @@ export async function DELETE(request) {
     
     const data = getData();
     data.messages = (data.messages || []).filter(m => m.id !== id);
-    saveData(data);
+    await saveData(data);
     
     return NextResponse.json({ success: true });
   } catch (error) {
