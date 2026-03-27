@@ -10,7 +10,7 @@ export async function POST(request) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    const data = getData();
+    const data = await getData();
     const newMessage = {
       id: Date.now().toString(),
       name,
@@ -34,7 +34,7 @@ export async function DELETE(request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
     
-    const data = getData();
+    const data = await getData();
     data.messages = (data.messages || []).filter(m => m.id !== id);
     await saveData(data);
     

@@ -6,7 +6,7 @@ export const metadata = {
   description: 'Professional experience and career timeline.',
 };
 
-export default function ExperiencePage() {
-  const experience = getSection('experience');
+export default async function ExperiencePage() {
+  const experience = await getSection('experience');
   return <ExperienceClient experience={experience || []} />;
 }

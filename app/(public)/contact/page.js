@@ -6,8 +6,8 @@ export const metadata = {
   description: 'Get in touch — email, GitHub, LinkedIn, and social links.',
 };
 
-export default function ContactPage() {
-  const profile = getSection('profile');
+export default async function ContactPage() {
+  const profile = await getSection('profile');
   return (
     <div style={{ padding: '100px 24px', maxWidth: '900px', margin: '0 auto', minHeight: 'calc(100vh - 200px)' }}>
       <ContactTerminal profile={profile || {}} />

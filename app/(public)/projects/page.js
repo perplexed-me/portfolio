@@ -6,7 +6,7 @@ export const metadata = {
   description: 'Featured projects and applications built by Mohammad Ali Bhuiyan.',
 };
 
-export default function ProjectsPage() {
-  const projects = getSection('projects');
+export default async function ProjectsPage() {
+  const projects = await getSection('projects');
   return <ProjectsClient projects={projects || []} />;
 }

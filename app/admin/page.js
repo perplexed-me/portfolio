@@ -10,7 +10,7 @@ export const metadata = {
 export default async function AdminPage() {
   const cookieStore = await cookies();
   const isAuth = cookieStore.get('admin_auth')?.value === 'true';
-  const initialData = isAuth ? getData() : null;
+  const initialData = isAuth ? await getData() : null;
 
   return <AdminClient initialAuth={isAuth} initialData={initialData} />;
 }

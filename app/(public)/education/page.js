@@ -6,7 +6,7 @@ export const metadata = {
   description: 'Academic background and educational history.',
 };
 
-export default function EducationPage() {
-  const education = getSection('education');
+export default async function EducationPage() {
+  const education = await getSection('education');
   return <EducationClient education={education || []} />;
 }

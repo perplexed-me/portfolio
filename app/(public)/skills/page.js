@@ -6,7 +6,7 @@ export const metadata = {
   description: 'Technical skills and proficiency levels.',
 };
 
-export default function SkillsPage() {
-  const skills = getSection('skills');
+export default async function SkillsPage() {
+  const skills = await getSection('skills');
   return <SkillsClient skills={skills || []} />;
 }
