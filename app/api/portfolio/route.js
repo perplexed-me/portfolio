@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getData, updateSection } from '@/lib/data';
 
 export async function GET() {
@@ -16,6 +17,7 @@ export async function PUT(request) {
       return NextResponse.json({ error: 'Section is required' }, { status: 400 });
     }
     const updated = await updateSection(section, value);
+    revalidatePath('/', 'layout');
     return NextResponse.json({ success: true, data: updated });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
