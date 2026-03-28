@@ -14,14 +14,14 @@ const NAV_ITEMS = [
 
 export default function Navbar({ profileName }) {
   const pathname = usePathname();
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const saved = localStorage.getItem('theme') || 'light';
+    const saved = localStorage.getItem('theme') || 'dark';
     setTheme(saved);
     document.documentElement.setAttribute('data-theme', saved);
 
