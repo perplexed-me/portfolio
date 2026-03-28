@@ -5,10 +5,41 @@ export const metadata = {
   title: 'Mohammad Ali Bhuiyan',
   description: 'Full Stack Developer passionate about building modern, performant web experiences. Explore my projects, skills, and get in touch.',
   keywords: ['developer', 'portfolio', 'full stack', 'react', 'nextjs', 'web development'],
+  authors: [{ name: 'Mohammad Ali Bhuiyan', url: 'https://mohammadalibhuiyan.me' }],
+  creator: 'Mohammad Ali Bhuiyan',
   openGraph: {
     title: 'Mohammad Ali Bhuiyan',
     description: 'Full Stack Developer passionate about building modern, performant web experiences.',
+    url: 'https://mohammadalibhuiyan.me',
+    siteName: 'Mohammad Ali Bhuiyan Portfolio',
+    images: [
+      {
+        url: 'https://mohammadalibhuiyan.me/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mohammad Ali Bhuiyan Portfolio',
+      },
+    ],
     type: 'website',
+  },
+  alternates: {
+    // Setting this to generally use metadataBase relative routing
+    // Each page (like /projects) can export its own alternates: { canonical: '/projects' }
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'VW4BAFWxwt3qORakTbHtW2Q_VqjpxT79LD0RAvTka14',
   },
 };
 
@@ -23,7 +54,12 @@ export default function RootLayout({ children }) {
     '@type': 'Person',
     name: 'Mohammad Ali Bhuiyan',
     url: 'https://mohammadalibhuiyan.me',
+    image: 'https://mohammadalibhuiyan.me/profile.jpg',
     jobTitle: 'Full Stack Developer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Freelance / Independent Developer',
+    },
     alumniOf: [
       {
         '@type': 'CollegeOrUniversity',
