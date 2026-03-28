@@ -2,29 +2,39 @@ import './globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://mohammadalibhuiyan.me'),
-  title: 'Mohammad Ali Bhuiyan',
-  description: 'Full Stack Developer passionate about building modern, performant web experiences. Explore my projects, skills, and get in touch.',
-  keywords: ['developer', 'portfolio', 'full stack', 'react', 'nextjs', 'web development'],
+  title: 'Mohammad Ali Bhuiyan | BUET CSE | Full-Stack Developer',
+  description: 'Mohammad Ali Bhuiyan is a BUET CSE student and full-stack developer. Explore projects, skills, experience, and contact details.',
+  keywords: [
+    'Mohammad Ali Bhuiyan', 'Mohammad Ali Bhuiyan developer', 'Mohammad Ali Bhuiyan BUET',
+    'Mohammad Ali Bhuiyan portfolio', 'full stack developer Bangladesh',
+    'BUET CSE', 'Next.js developer', 'React developer Bangladesh',
+    'developer', 'portfolio', 'full stack', 'react', 'nextjs', 'web development',
+  ],
   authors: [{ name: 'Mohammad Ali Bhuiyan', url: 'https://mohammadalibhuiyan.me' }],
   creator: 'Mohammad Ali Bhuiyan',
   openGraph: {
-    title: 'Mohammad Ali Bhuiyan',
-    description: 'Full Stack Developer passionate about building modern, performant web experiences.',
+    title: 'Mohammad Ali Bhuiyan | BUET CSE | Full-Stack Developer',
+    description: 'Mohammad Ali Bhuiyan is a BUET CSE student and full-stack developer. Explore projects, skills, experience, and contact details.',
     url: 'https://mohammadalibhuiyan.me',
-    siteName: 'Mohammad Ali Bhuiyan Portfolio',
+    siteName: 'Mohammad Ali Bhuiyan',
     images: [
       {
         url: 'https://mohammadalibhuiyan.me/og.png',
         width: 1200,
         height: 630,
-        alt: 'Mohammad Ali Bhuiyan Portfolio',
+        alt: 'Mohammad Ali Bhuiyan - BUET CSE student and full-stack developer',
       },
     ],
     type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mohammad Ali Bhuiyan | BUET CSE | Full-Stack Developer',
+    description: 'Mohammad Ali Bhuiyan is a BUET CSE student and full-stack developer. Explore projects, skills, experience, and contact details.',
+    images: ['https://mohammadalibhuiyan.me/og.png'],
   },
   alternates: {
-    // Setting this to generally use metadataBase relative routing
-    // Each page (like /projects) can export its own alternates: { canonical: '/projects' }
     canonical: '/',
   },
   robots: {
@@ -49,40 +59,34 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Mohammad Ali Bhuiyan',
-    url: 'https://mohammadalibhuiyan.me',
-    image: 'https://mohammadalibhuiyan.me/profile.jpg',
-    jobTitle: 'Full Stack Developer',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Freelance / Independent Developer',
-    },
-    alumniOf: [
-      {
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Mohammad Ali Bhuiyan',
+      url: 'https://www.mohammadalibhuiyan.me/',
+      image: 'https://www.mohammadalibhuiyan.me/profile.jpg',
+      jobTitle: 'Full-Stack Developer',
+      description: 'BUET CSE student and full-stack developer building performant web applications.',
+      alumniOf: {
         '@type': 'CollegeOrUniversity',
-        name: 'Bangladesh University of Engineering and Technology (BUET)',
-        url: 'https://www.buet.ac.bd/'
+        name: 'Bangladesh University of Engineering and Technology',
+        url: 'https://www.buet.ac.bd/',
       },
-      {
-        '@type': 'EducationalOrganization',
-        name: 'Notre Dame College, Dhaka (NDC)',
-        url: 'https://ndc.edu.bd/'
-      },
-      {
-        '@type': 'EducationalOrganization',
-        name: 'Ispahani Public School and College, Cumilla (IPSC)',
-        url: 'https://www.ipsc.edu.bd/'
-      }
-    ],
-    sameAs: [
-      'https://github.com/perplexed-me',
-      'https://www.linkedin.com/in/mohammad-ali-bhuiyan/',
-      'https://www.facebook.com/mohammad.ali.bhuiyan.237/'
-    ]
-  };
+      sameAs: [
+        'https://github.com/perplexed-me',
+        'https://www.linkedin.com/in/mohammad-ali-bhuiyan/',
+        'https://www.facebook.com/mohammad.ali.bhuiyan.237/',
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      url: 'https://www.mohammadalibhuiyan.me/',
+      name: 'Mohammad Ali Bhuiyan',
+      alternateName: 'mohammadalibhuiyan.me',
+    },
+  ];
 
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">

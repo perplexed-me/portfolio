@@ -3,7 +3,8 @@ import ContactTerminal from './ContactTerminal';
 
 export const metadata = {
   title: 'Contact — Mohammad Ali Bhuiyan',
-  description: 'Get in touch — email, GitHub, LinkedIn, and social links.',
+  description: 'Get in touch with Mohammad Ali Bhuiyan — email, GitHub, LinkedIn, and social links.',
+  alternates: { canonical: '/contact' },
 };
 
 export default async function ContactPage() {

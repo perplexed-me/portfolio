@@ -2,8 +2,11 @@ import { getSection } from '@/lib/data';
 import HomeClient from './HomeClient';
 
 export const metadata = {
-  title: 'Mohammad Ali Bhuiyan',
-  description: 'Full Stack Developer building modern, performant web experiences.',
+  title: 'Mohammad Ali Bhuiyan | BUET CSE | Full-Stack Developer',
+  description: 'Mohammad Ali Bhuiyan is a BUET CSE student and full-stack developer. Explore projects, skills, experience, and contact details.',
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default async function HomePage() {
